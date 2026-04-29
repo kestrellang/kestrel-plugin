@@ -7,8 +7,7 @@ Local plugin package for Kestrel language guidance.
 - `.codex-plugin/plugin.json` declares the Codex plugin metadata and skill path.
 - `.claude-plugin/plugin.json` declares the Claude Code plugin metadata and skill path.
 - `.lsp.json` configures the `kestrel-lsp` language server for `.ks` files.
-- `KESTREL_SKILL.md` is the standalone Kestrel language guide.
-- `skills/kestrel/SKILL.md` is the discoverable skill version of the same guide for both plugin hosts.
+- `skills/kestrel/SKILL.md` is the Kestrel language guide and the source of truth for both plugin hosts.
 
 ## Claude Code
 
