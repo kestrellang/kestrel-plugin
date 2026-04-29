@@ -1,0 +1,9 @@
+{
+  "kestrel": {
+    "command": "kestrel-lsp",
+    "transport": "stdio",
+    "extensionToLanguage": {
+      ".ks": "kestrel"
+    }
+  }
+}

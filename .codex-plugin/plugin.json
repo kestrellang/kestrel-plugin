@@ -1,0 +1,38 @@
+{
+  "name": "kestrel-plugin",
+  "version": "0.1.0",
+  "description": "Kestrel language guidance for Claude Code and Codex agents.",
+  "author": {
+    "name": "Kestrel",
+    "url": "https://kestrel-lang.com"
+  },
+  "homepage": "https://kestrel-lang.com",
+  "repository": "https://github.com/kestrellang/kestrel",
+  "license": "Apache-2.0",
+  "keywords": [
+    "kestrel",
+    "language",
+    "claude-code",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "lspServers": "./.lsp.json",
+  "interface": {
+    "displayName": "Kestrel",
+    "shortDescription": "Kestrel syntax and tooling guidance for agents.",
+    "longDescription": "Provides a Kestrel language skill covering syntax, ownership, package tooling, common pitfalls, and examples for writing, editing, reviewing, or explaining Kestrel code.",
+    "developerName": "Kestrel",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://kestrel-lang.com",
+    "defaultPrompt": [
+      "Write a Kestrel example using structs and methods.",
+      "Review this Kestrel code for syntax and ownership issues.",
+      "Create a minimal flock package."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
