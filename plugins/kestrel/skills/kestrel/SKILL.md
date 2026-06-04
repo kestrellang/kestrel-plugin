@@ -48,14 +48,8 @@ flock update
 flock publish
 ```
 
-Install the official VS Code extension by searching for **Kestrel** in the
-Extensions sidebar, or with:
-
-```sh
-code --install-extension kestrel-lang.kestrel
-```
-
-If installing from a downloaded release artifact, use:
+Install the Kestrel editor extension (VS Code / Cursor) from the latest
+`kestrel-vscode` release — download the `.vsix` for your platform and install it:
 
 ```sh
 code --install-extension path/to/kestrel-<target>.vsix

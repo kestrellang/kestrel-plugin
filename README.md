@@ -1,51 +1,49 @@
 # Kestrel Plugin
 
-Local plugin package for Kestrel language guidance.
+Kestrel language guidance (a skill) plus the `kestrel-lsp` language-server
+configuration, packaged as a plugin for **Claude Code** and **Codex**.
 
-## Contents
+## Install
 
-- `.codex-plugin/plugin.json` declares the Codex plugin metadata and skill path.
-- `.claude-plugin/plugin.json` declares the Claude Code plugin metadata and skill path.
-- `.lsp.json` configures the `kestrel-lsp` language server for `.ks` files.
-- `skills/kestrel/SKILL.md` is the Kestrel language guide and the source of truth for both plugin hosts.
-
-## Claude Code
-
-Claude Code discovers plugin components from the plugin root. This package uses
-the standard `.claude-plugin/plugin.json` manifest and root-level `skills/`
-directory, so the skill is installed as a namespaced plugin skill.
-
-The LSP configuration expects `kestrel-lsp` to be available on `PATH`. Jessup
-installs and links it with the active Kestrel toolchain.
-
-## VS Code
-
-Install the official Kestrel VS Code extension from the Extensions sidebar by
-searching for **Kestrel**, or install it from the command line:
+**Claude Code**
 
 ```sh
-code --install-extension kestrel-lang.kestrel
+claude plugin marketplace add kestrellang/kestrel-plugin
+claude plugin install kestrel-plugin@kestrel
 ```
 
-For a downloaded release asset, install the matching `.vsix` directly:
+**Codex**
+
+```sh
+codex plugin marketplace add kestrellang/kestrel-plugin
+codex plugin add kestrel-plugin@kestrel
+```
+
+The plugin provides a Kestrel skill (syntax, ownership, package tooling, common
+pitfalls) and configures the `kestrel-lsp` language server for `.ks` files.
+`kestrel-lsp` must be on your `PATH` — Jessup installs and links it with the
+active Kestrel toolchain.
+
+## Layout
+
+This repo is a marketplace hosting a single plugin:
+
+- `.claude-plugin/marketplace.json` — Claude Code marketplace manifest.
+- `.agents/plugins/marketplace.json` — Codex marketplace manifest.
+- `plugins/kestrel/` — the plugin itself:
+  - `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json` — host manifests.
+  - `.lsp.json` — `kestrel-lsp` configuration for `.ks` files.
+  - `skills/kestrel/SKILL.md` — the Kestrel language guide (source of truth).
+
+## Editor extension (VS Code / Cursor)
+
+The Kestrel editor extension ships as a `.vsix` in the
+[`kestrel-vscode` releases](https://github.com/kestrellang/kestrel-vscode/releases/latest).
+Download the `.vsix` for your platform and install it:
 
 ```sh
 code --install-extension path/to/kestrel-<target>.vsix
 ```
 
-To install the extension from the latest GitHub release:
-
-```sh
-target="$(case "$(uname -s)-$(uname -m)" in
-  Darwin-arm64) echo darwin-arm64 ;;
-  Darwin-x86_64) echo darwin-x64 ;;
-  Linux-x86_64) echo linux-x64 ;;
-  *) echo unsupported; exit 1 ;;
-esac)"
-gh release download --repo kestrellang/kestrel-vscode --pattern "kestrel-${target}.vsix" --clobber
-code --install-extension "kestrel-${target}.vsix"
-```
-
-After installing, open a `.ks` file or a folder containing `flock.toml`. The
-extension discovers `kestrel-lsp` from `PATH`; Jessup provides it with the
+The extension discovers `kestrel-lsp` from `PATH`; Jessup provides it with the
 active toolchain.
