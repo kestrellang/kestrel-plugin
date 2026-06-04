@@ -663,10 +663,10 @@ For authoritative, up-to-date APIs, prefer published references over guessing
 signatures:
 
 - Standard-library reference: `kestrel-lang.com/reference/stdlib`.
-- Context7: the language and stdlib docs are published there. Resolve the
-  `kestrellang/kestrel` library, then query it for stdlib/language docs. The
-  source repo ships a `context7.json` that indexes `docs/stdlib` and
-  `docs/language`.
+- Context7: the stdlib API reference is indexed at
+  `https://context7.com/websites/kestrel-lang_reference_stdlib` — query it (via
+  the Context7 MCP) for up-to-date stdlib and language docs instead of guessing
+  signatures.
 - Source, issues, and the `context7.json` config:
   `github.com/kestrellang/kestrel`.
 
