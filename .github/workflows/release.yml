@@ -19,18 +19,19 @@ jobs:
 
       - name: Validate manifest shape
         run: |
-          python -m json.tool .claude-plugin/plugin.json >/dev/null
-          python -m json.tool .codex-plugin/plugin.json >/dev/null
-          python -m json.tool .lsp.json >/dev/null
-          test -f skills/kestrel/SKILL.md
+          python -m json.tool .claude-plugin/marketplace.json >/dev/null
+          python -m json.tool .agents/plugins/marketplace.json >/dev/null
+          python -m json.tool plugins/kestrel/.claude-plugin/plugin.json >/dev/null
+          python -m json.tool plugins/kestrel/.codex-plugin/plugin.json >/dev/null
+          python -m json.tool plugins/kestrel/.lsp.json >/dev/null
+          test -f plugins/kestrel/skills/kestrel/SKILL.md
 
       - name: Package plugin
         env:
           TAG_NAME: ${{ github.ref_name }}
         run: |
           mkdir -p dist/kestrel-plugin
-          cp -R .claude-plugin .codex-plugin skills dist/kestrel-plugin/
-          cp .lsp.json README.md dist/kestrel-plugin/
+          cp -R .claude-plugin .agents plugins README.md dist/kestrel-plugin/
           tar -C dist -czf "kestrel-plugin-${TAG_NAME}.tar.gz" kestrel-plugin
           (cd dist && zip -qr "../kestrel-plugin-${TAG_NAME}.zip" kestrel-plugin)
 

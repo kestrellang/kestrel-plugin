@@ -1,0 +1,13 @@
+{
+  "name": "kestrel",
+  "plugins": [
+    {
+      "name": "kestrel-plugin",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kestrel"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

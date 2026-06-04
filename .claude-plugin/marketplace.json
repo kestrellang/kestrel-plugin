@@ -1,0 +1,15 @@
+{
+  "name": "kestrel",
+  "owner": {
+    "name": "Kestrel"
+  },
+  "description": "Official Kestrel language plugins for Claude Code.",
+  "plugins": [
+    {
+      "name": "kestrel-plugin",
+      "source": "./plugins/kestrel",
+      "description": "Kestrel language guidance (syntax, ownership, tooling) plus the kestrel-lsp language server.",
+      "license": "Apache-2.0"
+    }
+  ]
+}
